@@ -41,7 +41,6 @@ Data/
 | Archivo | Contenido |
 |---|---|
 | `Pipeline_V2.ipynb` | Notebook principal con todo el procesamiento, los resultados y su análisis |
-| `Pipeline.ipynb` | Versión inicial del pipeline (exploración preliminar) |
 | `resultados/caracteristicas_lesiones.csv` | Características extraídas de las 150 lesiones, con máscara de referencia y automática (se genera al ejecutar el notebook) |
 | `requirements.txt` | Dependencias de Python |
 

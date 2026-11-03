@@ -13,7 +13,7 @@ Se desarrolla un algoritmo de procesamiento de imágenes dermatoscópicas que:
 1. Caracteriza el conjunto de imágenes (formato, resolución, canales e histogramas).
 2. Preprocesa las imágenes: compara filtros de suavizado y mejoras de contraste, y elimina pelos mediante black-hat e inpainting.
 3. Segmenta automáticamente la lesión con cinco métodos sobre el canal S (umbral fijo, Otsu, Canny, crecimiento de regiones y Chan–Vese) y refina las máscaras con operaciones morfológicas.
-4. Evalúa las segmentaciones con Dice e IoU respecto de las máscaras de los especialistas.
+4. Evalúa las segmentaciones con Dice y Jaccard respecto de las máscaras de los especialistas.
 5. Extrae características morfológicas (circularidad, solidez, asimetría, etc.), de color (RGB, HSV y CIELAB) y de textura (GLCM).
 6. Compara estadísticamente las características entre melanoma, nevus y queratosis seborreica, controla la influencia del origen de las imágenes (resolución y equipo de adquisición) y analiza cómo influye la segmentación sobre las mediciones.
 

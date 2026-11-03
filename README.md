@@ -11,11 +11,12 @@ Integrantes: Cendoya, Sanchez, Tobal.
 Se desarrolla un algoritmo de procesamiento de imágenes dermatoscópicas que:
 
 1. Caracteriza el conjunto de imágenes (formato, resolución, canales e histogramas).
-2. Preprocesa las imágenes: compara filtros de suavizado y mejoras de contraste, y elimina pelos mediante black-hat e inpainting.
+2. Preprocesa las imágenes: compara filtros de suavizado y mejoras de contraste, elimina pelos mediante black-hat y reconstruye las regiones ocluidas mediante inpainting.
 3. Segmenta automáticamente la lesión con cinco métodos sobre el canal S (umbral fijo, Otsu, Canny, crecimiento de regiones y Chan–Vese) y refina las máscaras con operaciones morfológicas.
 4. Evalúa las segmentaciones con Dice y Jaccard respecto de las máscaras de los especialistas.
 5. Extrae características morfológicas (circularidad, solidez, asimetría, etc.), de color (RGB, HSV y CIELAB) y de textura (GLCM).
 6. Compara estadísticamente las características entre melanoma, nevus y queratosis seborreica, controla la influencia del origen de las imágenes (resolución y equipo de adquisición) y analiza cómo influye la segmentación sobre las mediciones.
+7. Analiza la compresión y descompresión de las imágenes (PNG sin pérdida y JPEG con distintas calidades): tasa de compresión, calidad de reconstrucción (PSNR y SSIM) y su efecto sobre la segmentación y las características.
 
 El trabajo no pretende reemplazar la evaluación diagnóstica de un profesional.
 
@@ -82,3 +83,4 @@ La ejecución completa demora entre 40 y 60 minutos, según el equipo. Las etapa
 - Chan–Vese y Otsu sobre el canal S, con eliminación de pelos y refinamiento morfológico, alcanzan un Dice mediano de 0,85 y 0,84 respecto de las máscaras de los especialistas.
 - La asimetría es la característica que distingue al melanoma de forma más robusta: se mantiene frente a los nevus y al controlar el origen de las imágenes. Las diferencias de color y textura entre melanoma y lesiones benignas se deben principalmente a la queratosis seborreica, cuyas imágenes provienen casi todas de las mismas fuentes de adquisición.
 - Las características de color y textura se mantienen con la segmentación automática, mientras que las de forma se degradan, por lo que la precisión del contorno es la principal limitación del sistema.
+- La compresión JPEG con calidad 75 reduce el tamaño unas 40 veces sin afectar la segmentación ni el color; la textura (GLCM) es la característica más sensible a la pérdida de detalles finos.

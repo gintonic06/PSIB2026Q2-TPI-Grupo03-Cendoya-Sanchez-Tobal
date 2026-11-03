@@ -222,3 +222,4 @@ __marimo__/
 # Dataset
 /Data/
 /Data_MILK10k/
+.DS_Store
